@@ -1,0 +1,45 @@
+/* Pages de Brevet Quest : la mise en page du site (../style.css), aux couleurs du jeu (nuit bleue et or) et avec
+   sa police pixel, Jersey 15, pour les titres. */
+@font-face {
+  font-family: "Jersey 15";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  size-adjust: 116%;
+  src: url(fonts/jersey15-latin-ext.woff2) format("woff2");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Jersey 15";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  size-adjust: 116%;
+  src: url(fonts/jersey15-latin.woff2) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+:root {
+  --bg: #0B1026; --surface: #141B40; --surface-2: #1E275A; --border: #2A3474; --border-strong: #3A4790;
+  --text: #F3F1FF; --text-soft: #D9DCF5; --muted: #9AA0CC;
+  --teal: #FFD166; --teal-text: #FFE39A; --teal-a: rgba(255, 209, 102, .14); --teal-line: rgba(255, 209, 102, .45);
+  --pixel: "Jersey 15", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+.brand { font-family: var(--pixel); font-weight: 400; font-size: 1.7rem; letter-spacing: .01em; }
+.brand img { image-rendering: pixelated; }
+.hero h1, .doc h1 { font-family: var(--pixel); font-weight: 400; letter-spacing: .01em; line-height: 1; }
+.hero h1 { font-size: clamp(2.8rem, 7.5vw, 4.4rem); }
+.doc h1 { font-size: clamp(2.2rem, 6vw, 3rem); }
+.hero-art { image-rendering: pixelated; filter: drop-shadow(0 0 40px rgba(255, 140, 70, .45)); }
+.card h2, .band h2, .doc h2 { font-family: var(--font-body); font-weight: 700; }
+.shots { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 14px; margin: 8px 0 32px; }
+.shots figure { flex: none; margin: 0; width: 210px; scroll-snap-align: start; }
+.shots img { display: block; width: 100%; height: auto; border-radius: 18px; border: 1px solid var(--border); background: var(--surface); }
+.shots figcaption { color: var(--muted); font-size: .9rem; margin-top: 8px; }
+.duo { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-block: 8px 40px; }
+/* Les marges des cartes ne fusionnent pas dans une grille : l'écart vient du seul .duo. */
+.duo > .band { margin: 0; }
+.duo .card p + p { margin-top: 8px; }
+@media (max-width: 720px) {
+  .duo { grid-template-columns: 1fr; }
+  .shots figure { width: 170px; }
+}
